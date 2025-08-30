@@ -41,7 +41,7 @@ High-level architecture showing how data flows from Cloud Storage → Mage → B
 
 ## 🧩 ETL Pipeline in Mage AI
 
-Visualization of the ETL workflow (`uber_ETL`) inside the **Mage AI interface**:
+Visualization of the ETL workflow (`uber_pipeline`) inside the **Mage AI interface**:
 
 ![Mage AI Pipeline](images/mage_pipeline.png)
 
@@ -49,7 +49,7 @@ Visualization of the ETL workflow (`uber_ETL`) inside the **Mage AI interface**:
 
 ##  BigQuery Table Schema
 
-Here’s the dimensions view with the fact table:
+Here are the dimension table views with the fact table in BigQuery Studio:
 
 ![BigQuery Schema](images/Dimensions_creation.png)
 
@@ -132,4 +132,8 @@ This will launch the Mage AI interface where we can create and run wer pipelines
 | **BigQuery**           | Data warehouse for storing fact & dimension tables (star schema)      |
 | **Star Schema**        | Data modeling with fact table + dimension tables                      |
 | **Service Account & IAM** | Secure authentication between Mage and Google Cloud services        |
+
+## 🙌 Inspiration
+
+This project was inspired by [Darshil Parmar's Uber ETL Pipeline Data Engineering Project](https://github.com/darshilparmar/uber-etl-pipeline-data-engineering-project/tree/main).  
 
