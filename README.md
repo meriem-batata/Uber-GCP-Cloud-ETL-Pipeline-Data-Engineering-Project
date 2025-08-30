@@ -27,9 +27,32 @@ The goal is to extract Uber trip data, transform it into **dimension tables** an
 
 ---
 
+## 🖼️ Project Architecture
+
+High-level architecture showing how data flows from Cloud Storage → Mage → BigQuery:
+
+![Project Architecture](images/project_architecture.png)
+
+---
+
+## 🧩 ETL Pipeline in Mage AI
+
+Visualization of the ETL workflow (`uber_ETL`) inside the **Mage AI interface**:
+
+![Mage AI Pipeline](images/mage_pipeline.png)
+
+---
+
+##  BigQuery Table Schema
+
+Here’s the schema view for the `datetime_dim` table in BigQuery:
+
+![BigQuery Schema](images/bigquery_schema.png)
+
+--- 
 ## ⚙️ Environment Setup on VM
 
-Run the following commands step by step on your VM instance (via SSH):
+Run the following commands step by step on wer VM instance (via SSH):
 
 ```bash
 # Update packages
@@ -59,56 +82,50 @@ sudo pip3 install google-cloud-bigquery
 ```bash
 mage start uber_project
 ```
-This will launch the Mage AI interface where you can create and run your pipelines.
+This will launch the Mage AI interface where we can create and run wer pipelines.
 
 ## 📂 ETL Pipeline (uber_ETL)
 1. Loader
+   - Loads Uber dataset from Google Cloud Storage.
 
-Loads Uber dataset from Google Cloud Storage.
+3. Transformer
 
-2. Transformer
+   - Cleans and transforms the dataset.
+   
+   - Creates the following tables:
+   
+   - Datetime Dimension
+   
+   - Passenger Count Dimension
 
-Cleans and transforms the dataset.
-
-Creates the following tables:
-
-Datetime Dimension
-
-Passenger Count Dimension
-
-Trip Distance Dimension
-
-Rate Code Dimension
-
-Pickup Location Dimension
-
-Dropoff Location Dimension
-
-Payment Type Dimension
-
-Fact Table (joining all dimensions)
+   - Trip Distance Dimension
+   
+   - Rate Code Dimension
+   
+   - Pickup Location Dimension
+   
+   - Dropoff Location Dimension
+   
+   - Payment Type Dimension
+   
+   - Fact Table (joining all dimensions)
 
 3. Exporter
-
-Loads all tables into BigQuery:
-
-Dataset: uber_dataset_project
-
-Tables: All dimensions + fact table
+   - Loads all tables into BigQuery:
+   - Dataset: uber_dataset_project
+   - Tables: All dimensions + fact table
 
 
-## 📊 Technologies Used
+## 🛠️ Tools & Technologies
 
-Python 3
+| Tool / Technology     | Usage                                                                 |
+|------------------------|----------------------------------------------------------------------|
+| **Jupyter Notebook**   | Initial data exploration, cleaning, and preprocessing                 |
+| **Python (pandas)**    | Data manipulation, transformations, and preparation                   |
+| **Mage AI**            | ETL orchestration (Loader, Transformer, Exporter pipelines)           |
+| **Google Cloud Storage** | Storage for raw Uber dataset                                         |
+| **Google Compute Engine (VM)** | Virtual machine to run Mage AI and ETL pipelines              |
+| **BigQuery**           | Data warehouse for storing fact & dimension tables (star schema)      |
+| **Star Schema**        | Data modeling with fact table + dimension tables                      |
+| **Service Account & IAM** | Secure authentication between Mage and Google Cloud services        |
 
-Mage AI (ETL Orchestration)
-
-Pandas (Data Processing)
-
-Google Cloud Platform (GCP)
-
-Compute Engine (VM)
-
-Cloud Storage
-
-BigQuery
