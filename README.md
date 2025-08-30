@@ -1,5 +1,9 @@
 # 🚕 Uber ETL Project with Mage & Google Cloud
 
+![](https://github.com/meriem-batata/Uber-GCP-Cloud-ETL-Pipeline-Data-Engineering-Project/blob/main/uber.jpg)
+
+
+## Overview
 This project demonstrates how to build a full ETL pipeline using **Mage AI**, **Google Cloud Platform (GCP)**, and **BigQuery**.  
 The goal is to extract Uber trip data, transform it into **dimension tables** and a **fact table**, and load it into BigQuery for further analysis.
 
