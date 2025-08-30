@@ -1,4 +1,4 @@
-# 🚕 Uber ETL Project with Mage & Google Cloud
+# 🚕 Uber ETL Project with Mage Ai & Google Cloud
 
 ![](https://github.com/meriem-batata/Uber-GCP-Cloud-ETL-Pipeline-Data-Engineering-Project/blob/main/uber.jpg)
 
@@ -49,9 +49,9 @@ Visualization of the ETL workflow (`uber_ETL`) inside the **Mage AI interface**:
 
 ##  BigQuery Table Schema
 
-Here’s the schema view for the `datetime_dim` table in BigQuery:
+Here’s the dimensions view with the fact table:
 
-![BigQuery Schema](images/bigquery_schema.png)
+![BigQuery Schema](images/Dimensions_creation.png)
 
 --- 
 ## ⚙️ Environment Setup on VM
