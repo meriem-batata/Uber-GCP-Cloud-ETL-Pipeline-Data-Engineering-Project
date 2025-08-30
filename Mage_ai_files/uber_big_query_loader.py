@@ -10,21 +10,13 @@ if 'data_exporter' not in globals():
 
 @data_exporter
 def export_data_to_big_query(data, **kwargs) -> None:
-    """
-    Template for exporting data to a BigQuery warehouse.
-    Specify your configuration settings in 'io_config.yaml'.
-
-    Docs: https://docs.mage.ai/design/data-loading#bigquery
-
-    
-    """
     config_path = path.join(get_repo_path(), 'io_config.yaml')
     config_profile = 'default'
 
     for key, value in data.items():
-        table_id = 'model-command-466515-q6.uber_dataset_project.{}'.format(key)
+        table_id = f'model-command-466515-q6.uber_dataset_project.{key}'
         BigQuery.with_config(ConfigFileLoader(config_path, config_profile)).export(
-            DataFrame(value),
+            value,   # ici value est déjà un DataFrame.head(100)
             table_id,
-            if_exists='replace',  # Specify resolution policy if table name already exists
+            if_exists='replace',
         )
